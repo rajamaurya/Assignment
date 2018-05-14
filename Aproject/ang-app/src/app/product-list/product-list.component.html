@@ -1,0 +1,51 @@
+<section  id="filter-details">
+  <header><p>Filter Deals</p></header>
+  <h4 style="color:skyblue">Features</h4>
+<div class="fproduct">
+    <div *ngFor="let fproduct of fproducts">
+       <input type="checkbox"  [checked]="getSelectedFeature" (change) = "getFProductById(fproduct.id )">{{fproduct.name}}
+    </div>
+</div>
+<h4 style="color:skyblue">Brand</h4>
+<div class="bproduct">
+    <div *ngFor="let bproduct of bproducts">
+       <input  type="checkbox" [(ngModel)]="checkbox" [checked]="getSelectedbrand" (ngModelChange) = "getBrandById(bproduct.id)">{{bproduct.name}}
+       <!--<label *ngIf="getSelectedbrand">{{bproduct.brand_id}}</label> -->
+    </div>
+</div>
+</section>
+<div class="container"  *ngIf="getSelectedbrand" style="margin-left: 200px;margin-top:-370px; 
+                            box-shadow: 1px 2px 4px rgba(0, 0, 0, .2); width:750px; margin-bottom:10px">
+        <div class="row">
+                <div style="box-shadow: 1px 1px 1px rgba(0, 0, 0, .2); color:black; margin:0px; width:750px">Digital Cameras</div>
+                <div class="col">
+                 
+                     <div class="card" *ngFor="let product of totalClickedProduct"
+                      style="width: 14rem;height: auto; float:left; margin-left:10px; margin-top:10px">
+                      <div class="card-img-top">
+                      <img class="card-img-top"  [src]= product.img />
+                      <div> {{product.name}}</div>
+                      <div>  ${{product.price}}</div>
+                     </div>
+                   </div>
+              </div>
+       </div>
+    </div>
+
+ <div class="container"   *ngIf="IsAllProduts" style="margin-left: 200px;margin-top:-370px; 
+                            box-shadow: 1px 2px 4px rgba(0, 0, 0, .2); width:750px; margin-bottom:10px">
+        <div class="row">
+                <div style="box-shadow: 1px 1px 1px rgba(0, 0, 0, .2); color:black; margin:0px; width:750px">Digital Cameras</div>
+                <div class="col">
+                 
+                     <div class="card" *ngFor="let product of products"
+                     style="width: 14rem;height: auto; float:left; margin-left:10px; margin-top:10px">
+                      <div class="card-img-top">
+                      <img class="card-img-top"  [src]= product.img />
+                      <div> {{product.name}}</div>
+                      <div>  ${{product.price}}</div>
+                     </div>
+                   </div>
+              </div>
+       </div>
+    </div>
